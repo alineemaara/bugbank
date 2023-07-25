@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.math.BigDecimal;
 
-public class TranferenciaTest {
+public class TranferenciaTests {
 
     private static WebDriver driver;
     private static Conta conta1;
