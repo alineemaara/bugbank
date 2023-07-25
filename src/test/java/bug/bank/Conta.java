@@ -82,8 +82,8 @@ public class Conta {
 
     public void transferir(Conta contaDestino, Double valorTransferencia, WebDriver driver) {
         WebDriverWait w = new WebDriverWait(driver, 3);
-        w.until(ExpectedConditions.elementToBeClickable(By.xpath(new String("//a[@id='btn-TRANSFERÊNCIA']/span/img".getBytes(), StandardCharsets.UTF_8))));
-        driver.findElement(By.xpath(new String("//a[@id='btn-TRANSFERÊNCIA']/span/img".getBytes(), StandardCharsets.UTF_8))).click();
+        w.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#btn-TRANSFER\\CANCIA")));
+        driver.findElement(By.cssSelector("#btn-TRANSFER\\CANCIA")).click();
         driver.findElement(By.name("accountNumber")).sendKeys(contaDestino.getNumeroConta());
         driver.findElement(By.name("digit")).sendKeys(contaDestino.getDigitoConta());
         driver.findElement(By.name("transferValue")).sendKeys(valorTransferencia.toString());

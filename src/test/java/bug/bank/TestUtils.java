@@ -12,11 +12,19 @@ public class TestUtils {
 
     public static WebDriver createWebDriver() {
         WebDriver driver;
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_win32/chromedriver.exe");
+        if(isWindows())
+            System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_win32/chromedriver.exe");
+        else
+            System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_linux64/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(8000, TimeUnit.MILLISECONDS);
         driver.get("https://bugbank.netlify.app/");
         return driver;
+    }
+
+    private static Boolean isWindows() {
+        String os = System.getProperty("os.name");
+        return os.toUpperCase().contains("WINDOWS");
     }
 }
